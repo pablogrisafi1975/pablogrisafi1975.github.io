@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="es-ar">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Entrada</title>
+<script language="JavaScript">
+var msg;
+function Abrirventana() 
+{
+ msg=open("zzgeo-index.htm","","toolbar=yes,status=yes,directories=yes,menubar=yes,fullscreen=yes,scrollbars=yes");
+}
+var message="¡¡¡Ese botón no!!!"; // Mensage ante el click derecho
+
+function click(i) 
+	{
+	if (document.all)
+		{
+		if (event.button == 2)
+			{
+			alert(message);
+			return false;
+			}
+	}
+
+if (document.layers)
+	{
+	if (i.which == 3)
+		{
+		alert(message);
+		return false;
+		}
+	}
+}
+
+if (document.layers)
+	{document.captureEvents(Event.MOUSEDOWN);}
+document.onmousedown=click;
+var estatus=0;
+function windowstatus1(txt) {
+	window.top.document.getElementById('windowstatus').innerHTML = txt;
+   estatus=1;
+   setTimeout("borrarbarra()",1000);
+}
+function borrarbarra() {
+   estatus=0;
+   window.status="";
+}
+var i=1;
+function miscroll1() 
+	{
+	var windowstatus = window.top.document.getElementById('windowstatus');
+	if (estatus==0 || true)
+		{
+		if(i==1){windowstatus.innerHTML="-- Página personal de Pablo Grisafi --";}
+		if(i==2){windowstatus.innerHTML="/ Página personal de Pablo Grisafi /";}
+		if(i==3){windowstatus.innerHTML=" | Página personal de Pablo Grisafi |";}
+		if(i==4){windowstatus.innerHTML="\\ Página personal de Pablo Grisafi \\";}
+		i++;
+		if(i>=5){i=1;}
+		}
+	setTimeout("miscroll1()",100);
+	}
+miscroll1();
+</script>
+
+</head>
+<BODY bgcolor="#C0C0C0" text="#000000" topmargin="0" leftmargin="0">
+<DIV id=dot0 style="HEIGHT: 20px; POSITION: absolute; VISIBILITY: hidden; WIDTH: 20px"><IMG 
+height=20 src="boton-orto.gif" width=20></DIV>
+<DIV id=dot1 style="HEIGHT: 20px; POSITION: absolute; WIDTH: 20px"><IMG 
+height=20 src="zzgeo-p.gif" width=20></DIV>
+<DIV id=dot2 style="HEIGHT: 20px; POSITION: absolute; WIDTH: 20px"><IMG 
+height=20 src="zzgeo-a.gif" width=20></DIV>
+<DIV id=dot3 style="HEIGHT: 20px; POSITION: absolute; WIDTH: 20px"><IMG 
+height=20 src="zzgeo-b.gif" width=20></DIV>
+<DIV id=dot4 style="HEIGHT: 20px; POSITION: absolute; WIDTH: 20px"><IMG 
+height=20 src="zzgeo-l.gif" width=20></DIV>
+<DIV id=dot5 style="HEIGHT: 20px; POSITION: absolute; WIDTH: 20px"><IMG 
+height=20 src="zzgeo-o.gif" width=20></DIV>
+
+
+
+
+
+
+<SCRIPT language=JavaScript>
+
+
+// Author: James DeZego. JJD228@AOL.COM />
+
+var nDots = 6;
+var Xpos = 0;
+var Ypos = 0;
+
+  // fixed time step, no relation to real time
+var DELTAT = .01;
+  // size of one spring in pixels
+var SEGLEN = 10;
+  // spring constant, stiffness of springs
+var SPRINGK = 10;
+  // all the physics is bogus, just picked stuff to
+  // make it look okay
+var MASS = 1;
+var GRAVITY = 50;
+var RESISTANCE = 10;
+  // stopping criterea to prevent endless jittering
+  // doesn't work when sitting on bottom since floor
+  // doesn't push back so acceleration always as big
+  // as gravity
+var STOPVEL = 0.1;
+var STOPACC = 0.1;
+var DOTSIZE = 11;
+  // BOUNCE is percent of velocity retained when 
+  // bouncing off a wall
+var BOUNCE = 0.75;
+
+var isNetscape = false;//navigator.appName=="Netscape";
+
+  // always on for now, could be played with to
+  // let dots fall to botton, get thrown, etc.
+var followmouse = true;
+
+var dots = new Array();
+init();
+
+function init()
+{
+    var i = 0;
+    for (i = 0; i < nDots; i++) {
+        dots[i] = new dot(i);
+    }
+    
+    if (!isNetscape) {
+        // I only know how to read the locations of the 
+        // <LI> items in IE
+        //skip this for now
+        // setInitPositions(dots)
+    }
+    
+    // set their positions
+    for (i = 0; i < nDots; i++) {
+    	if( dots[i].obj){
+        	dots[i].obj.left = dots[i].X;
+        	dots[i].obj.top = dots[i].Y;
+    	}
+    }
+    
+    
+    if (isNetscape) {
+        // start right away since they are positioned
+        // at 0, 0
+        startanimate();
+    } else {
+        // let dots sit there for a few seconds
+        // since they're hiding on the real vs
+        setTimeout("startanimate()", 200);
+    }
+}
+
+
+
+function dot(i) 
+{
+    this.X = Xpos;
+    this.Y = Ypos;
+    this.dx = 0;
+    this.dy = 0;
+    if (isNetscape) {   
+        this.obj = eval("document.dot" + i);
+    } else {
+        this.obj = eval("dot" + i + ".style");
+    }
+}
+
+
+function startanimate() {       
+    setInterval("animate()", 20);
+}
+
+
+// This is to line up the vs with actual LI tags on the page
+// Had to add -DOTSIZE to X and 2*DOTSIZE to Y for IE 5, not sure why
+// Still doesn't work great
+function setInitPositions(dots)
+{
+    // initialize dot positions to be on top 
+    // of the vs in the <ul>
+    var startloc = document.all.tags("LI");
+    var i = 0;
+    for (i = 0; i < startloc.length && i < (nDots - 1); i++) {
+        dots[i+1].X = startloc[i].offsetLeft
+            startloc[i].offsetParent.offsetLeft - DOTSIZE;
+        dots[i+1].Y = startloc[i].offsetTop +
+            startloc[i].offsetParent.offsetTop + 2*DOTSIZE;
+    }
+    // put 0th dot above 1st (it is hidden)
+    dots[0].X = dots[1].X;
+    dots[0].Y = dots[1].Y - SEGLEN;
+}
+
+// just save mouse position for animate() to use
+function MoveHandler(e)
+{
+    Xpos = e.pageX;
+    Ypos = e.pageY;       
+    return true;
+}
+
+// just save mouse position for animate() to use
+function MoveHandlerIE(e) {
+    Xpos = e.clientX + document.body.scrollLeft;//window.event.x + document.body.scrollLeft;
+    Ypos = e.clientY + document.body.scrollTop;//window.event.y + document.body.scrollTop;      
+}
+
+if (isNetscape) {
+    document.captureEvents(Event.MOUSEMOVE);
+    document.onMouseMove = MoveHandler;
+} else {
+    document.onmousemove = MoveHandlerIE;
+}
+
+
+function vec(X, Y)
+{
+    this.X = X;
+    this.Y = Y;
+}
+
+// adds force in X and Y to spring for dot[i] on dot[j]
+function springForce(i, j, spring)
+{
+    var dx = (dots[i].X - dots[j].X);
+    var dy = (dots[i].Y - dots[j].Y);
+    var len = Math.sqrt(dx*dx + dy*dy);
+    if (len > SEGLEN) {
+        var springF = SPRINGK * (len - SEGLEN);
+        spring.X += (dx / len) * springF;
+        spring.Y += (dy / len) * springF;
+    }
+}
+
+
+function animate() {    
+    // dots[0] follows the mouse,
+    // though no dot is drawn there
+    var start = 0;
+    if (followmouse) {
+        dots[0].X = Xpos;
+        dots[0].Y = Ypos;       
+        start = 1;
+    }
+    
+    for (var i = start ; i < nDots; i++ ) {
+        
+        var spring = new vec(0, 0);
+        if (i > 0) {
+            springForce(i-1, i, spring);
+        }
+        if (i < (nDots - 1)) {
+            springForce(i+1, i, spring);
+        }
+        
+        // air resisitance/friction
+        var resist = new vec(-dots[i].dx * RESISTANCE,
+            -dots[i].dy * RESISTANCE);
+        
+        // compute new accel, including gravity
+        var accel = new vec((spring.X + resist.X)/ MASS,
+            (spring.Y + resist.Y)/ MASS + GRAVITY);
+        
+        // compute new velocity
+        dots[i].dx += (DELTAT * accel.X);
+        dots[i].dy += (DELTAT * accel.Y);
+        
+        // stop dead so it doesn't jitter when nearly still
+        if (Math.abs(dots[i].dx) < STOPVEL &&
+            Math.abs(dots[i].dy) < STOPVEL &&
+            Math.abs(accel.X) < STOPACC &&
+            Math.abs(accel.Y) < STOPACC) {
+            dots[i].dx = 0;
+            dots[i].dy = 0;
+        }
+        
+        // move to new position
+        dots[i].X += dots[i].dx;
+        dots[i].Y += dots[i].dy;
+        
+        // get size of window
+        var height, width;
+        if (isNetscape) {
+            height = window.innerHeight + document.scrollTop;
+            width = window.innerWidth + document.scrollLeft;
+        } else {        
+            height = document.body.clientHeight + document.body.scrollTop;
+            width = document.body.clientWidth + document.body.scrollLeft;
+        }
+        
+        // bounce of 3 walls (leave ceiling open)
+        if (dots[i].Y >=  height - DOTSIZE -10) {
+            if (dots[i].dy > 0) {
+                dots[i].dy = BOUNCE * -dots[i].dy;
+            }
+            dots[i].Y = height - DOTSIZE - 10;
+        }
+        if (dots[i].X >= width - DOTSIZE - 10) {
+            if (dots[i].dx > 0) {
+                dots[i].dx = BOUNCE * -dots[i].dx;
+            }
+            dots[i].X = width - DOTSIZE - 10;
+        }
+        if (dots[i].X < 0) {
+            if (dots[i].dx < 0) {
+                dots[i].dx = BOUNCE * -dots[i].dx;
+            }
+            dots[i].X = 0;
+        }
+        
+        // move img to new position
+        if( dots[i].obj){
+        	dots[i].obj.left = dots[i].X + 'px';                   
+        	dots[i].obj.top =  dots[i].Y + 'px';
+        }
+    }
+}
+
+</SCRIPT>
+
+<p align="center"><b>Página Personal de Pablo Grisafi</b></p>
+<p align="center"><b>Undécima actualización al 24/09/2000 , o mejor dicho:</b></p>
+<p align="center"><b>Versión 1.1</b></p>
+<div align="center">
+  <center>
+<table border="0" width="100%" height="0">
+  <tr>
+    <td width="33%">Se aconseja
+      configurar su monitor en 800 x 600 puntos y usar IE5 o superior</td>
+    <td width="33%">
+      <p align="center"><b>&nbsp;Hola</b></p>
+    </td>
+    <td width="34%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="33%">Hola! Si estás acá, sabés quién soy y cual es mi
+      objetivo. Así que clickeá en la foto y basta de pavadas.</td>
+    <td width="33%">
+      <p align="center"><a href="zzgeo-index.htm" ><img border="0" src="ojosasi7.gif" alt="Entrar" width="160" height="120"></a></td>
+    <td width="34%"></td>
+  </tr>
+  <tr>
+    <td width="33%"> <img border="0" src="fuego.gif" width="30" height="52">     
+      Diseñado y mantenido por mí.
+<script language="LiveScript">
+  diacumple=new Date(2000,10,10);
+  hoy=new Date();
+  faltan=diacumple-hoy;
+  document.write("<BR>Faltan ",Math.floor(faltan/(1000*60*60*24))+1," días para mi cumpleaños");
+ </script>
+      
+
+ </td>
+    <td width="33%">
+      <p align="center">Mi número de ICQ es 85300031 y en este momento estoy
+      <font size="1" color="#0000c0"><!-- <img src="http://wwp.icq.com/scripts/online.dll?icq=85300031&img=6"> --><img src="online.dll.gif"></font></p>
+      <p>&nbsp;</p>
+    </td>
+    <td width="34%">&nbsp;Por supuesto,sigue sin haber sexo ni mail gratis ni
+      ofertas interesantes ni chat ni información util ni nada.</td>
+  </tr>
+</table>
+
+  </center>
+</div>
+
+</body>
+
+</html>

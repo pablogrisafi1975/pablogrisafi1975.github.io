@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Página de inicio</title>
+<base target="_self">
+<script language="JavaScript">
+var message="¡¡¡Ese botón no!!!"; // Mensage ante el click derecho
+
+function click(i) 
+	{
+	if (document.all)
+		{
+		if (event.button == 2)
+			{
+			alert(message);
+			return false;
+			}
+	}
+
+if (document.layers)
+	{
+	if (i.which == 3)
+		{
+		alert(message);
+		return false;
+		}
+	}
+}
+
+if (document.layers)
+	{document.captureEvents(Event.MOUSEDOWN);}
+document.onmousedown=click;
+</script>
+</head>
+
+<body bgcolor="#C0C0C0" text="#000000" topmargin="0" leftmargin="0">
+
+<table border="1" width="79%">
+  <tr>
+    <td width="100%">
+
+Novedades:
+<p>Un par de videos nuevos, algo en antropología, y algunos detalles.&nbsp;</p>
+<p>Casi nada más.</p>
+
+      <p>&nbsp;</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

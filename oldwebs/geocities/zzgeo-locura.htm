@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="es-ar">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Locura</title>
+<script >
+var i = 0;
+var interval = null;
+function locura(){
+	if(i > 200){
+		clearInterval(interval);
+		document.bgColor="#C0C0C0"
+		document.write("No te asustés y apretá ALT-F4");
+	}else{
+	var a=255*(Math.abs(Math.sin(i/255*3.141592)));
+	var r=255*(Math.abs(Math.sin(i/255*3.141592)));
+	var v=255*(Math.abs(Math.sin(i/255*3.141592)));
+	document.bgColor=a+256*v+256*256*r;
+	i++;
+	}
+	
+}
+
+
+</script>
+
+</head>
+
+<body topmargin="0" leftmargin="0">
+<script>
+interval = setInterval(locura, 50)
+</script>
+
+
+
+</body>
+
+</html>

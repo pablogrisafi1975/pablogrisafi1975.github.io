@@ -1,0 +1,75 @@
+﻿
+<div role="tabpanel" class="tab-pane" id="proyectos">
+  <p class="text-center">He aquí una lista de proyectos descargables publicamente en los que he trabajado más por
+    amor al arte que por otro motivo.</p>
+  <p>
+  <div class="row">
+    <ui-project title="BigNumUtils" url="https://github.com/pablogrisafi1975/bignumutils/">
+    <p>Es un mini dsl para Java que permite trabajar con BigDecimal y BigInteger casi como si Java tuviera
+      sobrecarga de operadores. Bueno, al menos el código es mas legible y respeta la precedencia matemática de
+      operadores.</p>
+    <div class="text-center">
+      Es decir, permite que una operacion matemática como<br />
+      <code class="text-primary"> a = b + c * d </code>
+      <br /> En vez de escribirse<br />
+      <code class="text-warning"> BigDecimal a = b.add((c.multiply(d)); </code>
+      <br /> Se puede escribir<br />
+      <code class="text-success"> BigDecimal a = op(b, PLUS, c, TIMES, d); </code>
+      <br />
+    </div>
+    <p>
+      Nótese la auscencia de parentesis para expresar precedencia. Es un experimento, tiene 10 descargas, nadie lo usa
+      en el mundo real. Para una implementación excelente de sobrecarga de operadores en Java, véase <a
+        href="http://amelentev.github.io/java-oo/" target="_blank">Java-OO</a>
+    </p>
+    </ui-project>
+    <ui-project title="Powermock-legacy" url="https://github.com/pablogrisafi1975/powermock-legacy/"> <img
+      src="assets/img/powermock-legacy.png" alt="powermock-legacy icon" class="img-rounded pull-left" /> Es un retro-fork de
+    PowerMock que me permite hacer funcionar PowerMock en Java 1.4. Si, mi trabajo me obligaba a usar esa versión
+    pre-histórica.<br />
+    Estoy bastante orgulloso de esto, fue un desafío interesante lograr hacer funcionar una librería tan moderna en un
+    lenguaje tan desactualizado. Además mereció la atención de los autores originales de PowerMock, que me enviaron un
+    email avisándome (¡ellos a mí!) que le ponían un link desde su página. Mimos al ego. En fin, lo abandoné porque
+    gracias al cielo ya no necesito usar Java 1.4 en mi trabajo. </ui-project>
+  </div>
+  <div class="row">
+    <ui-project title="loderunner-fork (j2me)" url="https://github.com/pablogrisafi1975/loderunner-fork/">
+    <img src="assets/img/loderunner-fork.jpg" alt="loderunner-fork icon" class="img-rounded pull-left" /> <ui-link
+      url="http://en.wikipedia.org/wiki/Lode_Runner">LodeRunner</ui-link> es un juego clásico de 1983. Es realmente
+    extraordinario. Es adictivo, complejo y la versión original ya incluía un editor de niveles, con lo cual tuvo una
+    comunidad de creadores de niveles ya en la antigüedad. Un señor llamado Fabien Gigante hizo un excelente port para
+    teléfono celular, que yo disfruté mucho. Sin embargo tenía algunos bugs y cierta falta de funcionalidad que me
+    molestaba. Como no pude contactarme con el autor, terminé haciendo un fork para añadir la funcionalidad que quería y
+    corregir esos problemas. En resumen, mi fork permite elegir el nivel y se adapta mejor a distintos tamaños de
+    pantalla. </ui-project>
+    <ui-project title="¡Subte! (j2me)" url="files/Subte.zip"> <img src="assets/img/subte.jpg" alt="Subte icon"
+      class="img-rounded pull-left" /> Como su nombre lo indica, es simplemente un programa para ver el recorrido del
+    subte aquí en Buenos Aires en el celular. Lo hice principalmente para jugar un poco con el canvas, y pelearme un
+    poco con j2me que estaba medio desentendido. Lo bajan, lo descomprimen y copian los dos archivos (jar y jad) al
+    celular, como corresponde. Es tan fácil de usar que no se para que le puse ayuda. Bueno, aprieten 1 si no lo
+    entienden. Igual ya es muy viejo, solo incluyen la lía A hasta Puan y Carabobo. No vale la pena actualizarlo en la
+    era smartphone. <br />
+    Nobleza obliga, si quieren ver algo muy superior, prueben <ui-link
+      url="http://sites.google.com/site/ortegaalfredo/smartmap">SmartMap</ui-link> .Lo hizo un tal Alfredo Ortega y es
+    ¡un plano completo de Capital Federal para celular! Me deprimió mucho cuando lo vi, me pasó el trapo mal. Pero
+    bueno, es mas pesado que mi programa, que busca recorridos y todo. ¡Que mas quieren en 40k! </ui-project>
+  </div>
+  <div class="row">
+    <ui-project title="¡Clima! (j2me)" url="files/Clima.zip"> <img src="assets/img/Clima.png" alt="Clima icon"
+      class="img-rounded pull-left" /> Se conecta a Internet y obtiene información del clima actual y el pronóstico
+    meteorológico del <ui-link url="http://www.weather.com/">Weather Channel</ui-link>, a través de <ui-link
+      href="http://weather.yahoo.com/">Yahoo Weather</ui-link>. Lo hice principalmente para ver como parsear un XML en
+    usando kxml, y está bastante copiado de <ui-link url="http://www.developer.com/ws/article.php/10927_3759471_1">éste
+    tutorial</ui-link> para aprender a usar Lightweight UI Toolkit....que al final no usé. Se tendría que ver correctamente en
+    cualquier modelo, pero...Lo bajan, lo descomprimen y copian los dos archivos (jar y jad) al celular, como
+    corresponde.. <br />
+    Me parece que el Weather Channel toma la temparatura del Aeroparque de Buenos Aires en vez del Observatorio, así que
+    tiende a decir que hace más frío que el real. </ui-project>
+    <ui-project title="chm2html (Windows)" url="files/chm2html.zip"> <img src="assets/img/chm2html.png"
+      alt="chm2html icon" class="img-rounded pull-left" /> Convierte archivos chm a capetas con un millón de html. Es
+    un frontend del HH - decompile. Me servía para leer archivos chm (despues de convertrlos, obvio) en mi Jornada 680.
+    ¡Ah los viejos tiempos! Lo pueden bajar, lo ejecutan y tiene la opción de instalarlo. Lo que si, antes necesitan el
+    .NetFramework 3.0 o superior...eso lo bajan de <ui-link url="https://msdn.microsoft.com/en-us/vstudio/aa496123.aspx">acá</ui-link>
+    , si tienen un Windows muy viejo. </ui-project>
+  </div>
+</div>

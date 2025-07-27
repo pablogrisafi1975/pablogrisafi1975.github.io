@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<bgsound src="growl.wav" loop="1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="es-ar">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Página personal de Pablo Grisafi</title>
+<base target="principal">
+
+<script language="JavaScript">
+var tocado=-1;
+
+function notocar() {
+	tocado++;
+     if (tocado==0){
+       alert("Dije No Tocar");
+     }
+     if(tocado==1){
+       alert("Ya te dije No Tocar");
+     }
+	  if(tocado==2){
+       alert("¿Cómo te lo tengo que decir?");
+	  }
+     if(tocado==3){
+       alert("¿Cómo carajo te lo tengo que decir?");
+     }
+     if(tocado==4){
+       alert("No toqués más!!!");
+     }
+     if(tocado==5){ 
+     	alert("Ta  bien, tocá,nomás");
+     }
+     if(tocado>=6){  
+     	loca();
+     }
+  }
+function loca() {
+   msg=open("zzgeo-locura.htm","DisplayWindow","toolbar=no,directories=no,menubar=no,fullscreen=yes,scrollbars=yes");
+}
+var estatus=0;
+function windowstatus1(txt) {
+   window.top.document.getElementById('windowstatus').innerHTML = txt;
+   estatus=1;
+   setTimeout("borrarbarra()",1000);
+}
+function borrarbarra() {
+   estatus=0;
+   window.top.document.getElementById('windowstatus').innerHTML ="";
+}
+var i=1;
+function miscroll1() 
+	{
+	if (estatus==0)
+		{
+		if(i==1){window.top.document.getElementById('windowstatus').innerHTML ="-- Página personal de Pablo Grisafi --";}
+		if(i==2){window.top.document.getElementById('windowstatus').innerHTML =="/ Página personal de Pablo Grisafi /";}
+		if(i==3){window.top.document.getElementById('windowstatus').innerHTML=" | Página personal de Pablo Grisafi |";}
+		if(i==4){window.top.document.getElementById('windowstatus').innerHTML="\\ Página personal de Pablo Grisafi \\";}
+		i++;
+		if(i==5){i=1;}
+		}
+	setTimeout("miscroll1()",100);
+	}
+
+var message="¡¡¡Ese botón no!!!"; // Mensage ante el click derecho
+
+function click(i) 
+	{
+	if (document.all)
+		{
+		if (event.button == 2)
+			{
+			alert(message);
+			return false;
+			}
+	}
+
+if (document.layers)
+	{
+	if (i.which == 3)
+		{
+		alert(message);
+		return false;
+		}
+	}
+}
+
+if (document.layers)
+	{document.captureEvents(Event.MOUSEDOWN);}
+document.onmousedown=click;
+</script>
+
+
+</head>
+<body onLoad="miscroll1();return true;" bgcolor="#C0C0C0">
+
+<table border="0" width="100%" height="65" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="15%" height="53" rowspan="3">
+      <p align="center"><img border="0" src="cabezazo.gif" width="64" height="66"></p>
+    </td>
+    <td width="153%" height="15"></td>
+    <td width="16%" height="61" rowspan="3"><img border="0" src="bandera2.gif" width="68" height="50"></td>
+  </tr>
+  <tr>
+    <td width="153%" height="21">
+
+<p align="center"><a href="zzgeo-inicio.htm" onMouseOver="windowstatus1('Página de inicio');
+ return true"><img border="0" src="boton-inicio.gif" width="40" height="40" alt="Inicio"></a>&nbsp;<a href="zzgeo-video.htm" onMouseOver="windowstatus1('Video en DivX');
+ return true"><img border="0" src="boton-video.gif" width="40" height="40" alt="Video"></a>
+<a href="zzgeo-recomendaciones.htm" onMouseOver="windowstatus1('Recomendaciones');
+ return true"><img border="0" src="boton-reco.gif" width="40" height="40" alt="Recomendaciones"></a>
+<a href="zzgeo-caraperro.htm" onMouseOver="windowstatus1('Cara de Perro');
+ return true"><img border="0" src="boton-perro.gif" width="40" height="40" alt="Cara de Perro"></a>&nbsp;<a href="zzgeo-ortografia.htm" onMouseOver="windowstatus1('Ortografía');
+ return true"><img border="0" src="boton-orto.gif" width="40" height="40" alt="Ortografía"></a>
+<a href="zzgeo-matematica.htm" onMouseOver="windowstatus1('Matemática');
+ return true"><img border="0" src="boton-mate.gif" width="40" height="40" alt="Matemática"></a>
+<a href="zzgeo-juegos.htm" onMouseOver="windowstatus1('Juegos');
+ return true"><img border="0" src="boton-juegos.gif" width="40" height="40" alt="Juegos"></a>
+<a href="zzgeo-antropolologia.htm" onMouseOver="windowstatus1('Antropología');
+ return true"><img border="0" src="boton-antro.gif" width="40" height="40" alt="Antropología"></a>
+<a href="#" onclick="alert('No funciona'); return false;" onMouseOver="windowstatus1('Colaboraciones');
+ return true"><img border="0" src="boton-cola.gif" width="40" height="40" alt="Colaboraciones"></a>  
+ <a href="zzgeo-encabezado.htm" onMouseOver="windowstatus1('Por favor no toque aquí');"  onclick="notocar();return false;" target="_self"><img border="0" src="boton-no.gif" width="40" height="40" alt="No tocar"></a> 
+<a href="zzgeo-subliminal-1.htm" onMouseOver="windowstatus1('Publicidad Subliminal');return true"><img border="0" src="boton-subli.gif" width="40" height="40" alt="Publicidad subliminal"></a> 
+ <a href="zzgeo-salir.htm" onMouseOver="windowstatus1('Salir');return true" ><img border="0" src="boton-salir.gif" width="37" height="40" alt="Salir"></a> </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="153%" height="17">&nbsp; </td>
+  </tr>
+</table>
+
+</body>
+
+</html>

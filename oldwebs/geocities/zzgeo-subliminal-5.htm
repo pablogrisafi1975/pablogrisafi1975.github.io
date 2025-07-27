@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="es-ar">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Subliminal</title>
+<script language="JavaScript">
+var message="¡¡¡Ese botón no!!!"; // Mensage ante el click derecho
+
+function click(i) 
+	{
+	if (document.all)
+		{
+		if (event.button == 2)
+			{
+			alert(message);
+			return false;
+			}
+	}
+
+if (document.layers)
+	{
+	if (i.which == 3)
+		{
+		alert(message);
+		return false;
+		}
+	}
+}
+
+if (document.layers)
+	{document.captureEvents(Event.MOUSEDOWN);}
+document.onmousedown=click;
+</script>
+</head>
+
+<body bgcolor="#C0C0C0" topmargin="0" leftmargin="0">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="49%">En fin, yo avisé que era medio pornográfico.¿Para que
+      carajo una empresa que coloca pisos de vinilo nesecita esto?¿Cuántas de
+      estas nos pasa inadvertidas?No se lo pierdan, porque habrá más.</td>
+    <td width="52%"><img border="0" src="zzgeo-subli-3.jpg" width="129" height="252"></td>
+  </tr>
+</table>
+
+</body>
+
+</html>
