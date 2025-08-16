@@ -1,0 +1,118 @@
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=UTF-8">
+	<title>Pablo Grisafi</title>
+    <SCRIPT languaje = "JAVASCRIPT">
+	
+
+	
+	
+function enviarMensaje(user){
+    if (typeof window.ActiveXObject != undefined){
+        var msn = new ActiveXObject('Messenger.UIAutomation.1');
+        msn.AutoSignin();
+        msn.InstantMessage(user);
+        }
+    }
+function escontacto(user){
+    var msnControl = new ActiveXObject('Messenger.UIAutomation.1');
+    var flag = false;
+    for (var i = 0; i < msnControl.MyContacts.Count; i++) {
+	if (msnControl.MyContacts.Item(i) == msnControl.GetContact(user, msnControl.MyServiceId)) {
+	    flag = true;            
+            break;            
+	    }
+        }
+    return flag; 
+    }
+function hacercontacto(user){
+    if(escontacto(user))    
+        alert('El usuario ' + user + ' ya es uno de sus contactos');
+    else{
+        var msnControl = new ActiveXObject('Messenger.UIAutomation.1');
+        msnControl.AutoSignin();
+        msnControl.AddContact(0, user);
+        }
+    }
+
+function verestado(user){
+    if(escontacto(user))    
+        alert('El usuario ' + user + ' ya es uno de sus contactos');
+    else{
+        alert('El usuario ' + user + ' no es uno de sus contactos. A��dalo para ver su estado');
+        }
+
+
+    }
+
+function yo(){
+    var msnControl = new ActiveXObject('Messenger.UIAutomation.1');
+    msnControl.AutoSignin();
+    alert(msnControl.LocalFullName);
+
+    }
+function contactos(){
+    var msnControl = new ActiveXObject('Messenger.UIAutomation.1');
+    var texto = 'Contactos' + '\n';
+    for (var i = 0; i < msnControl.MyContacts.Count; i++) {
+	texto = texto + msnControl.List(0).Item(i).EmailAddress + '\n' ;
+
+        }
+    alert(texto)
+    }
+
+    </SCRIPT>
+  <TITLE>P&aacute;gina personal de Pablo Grisafi</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+
+<br>
+<br>
+<table>
+<tr>
+       <td COLSPAN=3><left><strong><big><tt>
+       Pablo Grisafi
+       </strong></center></big></TT></td>
+</tr>
+<tr>
+       <td><small>Laboral: </small></td>
+       <td><small><strike>pgrisafi@moviltek.com</strike></small></td>
+       <td><center> <a href="#" onclick="alert('Esto ya no existe más')" > <img src="netfirms-mail.gif" border="0"></a></center></td>
+</tr>
+<tr>
+       <td><small>Personal:</small></td>
+       <td><small>pablogrisafi1975@gmail.com</a></small></td>
+       <td><center><a href="mailto:pablogrisafi1975@gmail.com" ><img src="netfirms-gmail.gif" border="0"></a></center></td>
+</tr>
+<tr>
+       <td><small>MSN:</small></td>
+       <td><small>pablogrisafi1975@hotmail.com</small></td>
+       <td><center><a href="#" onclick="alert('Esto ya no existe más')"><img src="netfirms-msn.gif" border="0" ></center></a></td>
+</tr>
+<tr>
+       <td COLSPAN=3><small><center>
+		<a href="#" onclick="alert('Esto ya no existe más')">
+		(A&ntilde;adir a la lista de contactos)</a>
+	</center></td>
+
+</tr>
+<tr>
+       <td COLSPAN=3><center>       
+		<a href="http://www.grifasi-sicilia.com/origininomegrifasi.htm" name="Origen del Nombre" TARGET="_TOP">
+		<img src="netfirms-escudo.jpg" width="120" height="123" border="0">
+		</a>     
+       </center></td>  
+</tr>
+<tr>
+       <td COLSPAN=3><center>
+       <strong><small>Conosce come vincere e la vittoria é il suo fato</strong></small><BR>
+       <i><small>Conoce como vencer y la victoria es un hecho</small></i>	
+       </center>
+       </td>  
+</tr>
+</table>
+<br><br><br><br><br>
+
+</BODY>
+</HTML>
