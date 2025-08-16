@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/pure-min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Página personal de Pablo Grisafi</title>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <script src="/js/htmx.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <style>
+        body {
+          margin: 0;
+          height: 100vh;
+          display: grid;
+
+          /* Define the grid areas */
+          grid-template-areas:
+            "header header"
+            "sidebar main"
+            "footer footer";
+
+          /* Define column sizes */
+          grid-template-columns: 200px 1fr;
+
+          /* Define row sizes */
+          grid-template-rows: 60px 1fr 40px;
+        }
+
+        header {
+          grid-area: header;
+          background: #333;
+          color: white;
+          display: flex;
+          align-items: center;
+          padding: 0 1rem;
+        }
+
+        nav {
+          grid-area: sidebar;
+          background: #ddd;
+          padding: 1rem;
+        }
+
+        main {
+          grid-area: main;
+          padding: 1rem;
+        }
+
+        footer {
+          grid-area: footer;
+          background: #333;
+          color: #ddd;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>
+        Página personal de Pablo Grisafi
+    </h1>
+
+</header>
+<nav>
+    <div class="pure-menu custom-restricted-width">
+        <span class="pure-menu-heading">
+            <img alt="foto chiquita"
+                 class="small-picture img-rounded"
+                 src="img/fotito.jpg"></span>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Bienvenido</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Contacto</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Experiencia</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Proyectos</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Redes Sociales</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Presencia Web</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">El pasado</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<main>Main Content</main>
+<footer>
+    <h6>
+        El diseño de esta página es enteramente mío, lo que muestra mi pobre capacidad estética. Se basa en
+        <a href="https://pure-css.github.io/" target="_blank"
+        >pure css</span></a>. Esta página está gentil y gratuitamentemente hosteada por
+        <a href="http://github.com/" target="_blank"
+        >GitHub</a>. El favicon está tomado de
+        <a href="http://stackoverflow.com" target="_blank"
+        >StackOverflow</a>
+        (es la imagen que generaron para mi perfil automáticamente) y convertido de formato gracias a
+        <a href="http://favicon.htmlkit.com/ " target="_blank">FavIcon from Pics</a>
+    </h6>
+</footer>
+</body>
+</html>
