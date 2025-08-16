@@ -45,6 +45,7 @@
         main {
           grid-area: main;
           padding: 1rem;
+          color: #444
         }
 
         footer {
@@ -73,13 +74,16 @@
                  src="img/fotito.jpg"></span>
         <ul class="pure-menu-list">
             <li class="pure-menu-item">
-                <a href="#" class="pure-menu-link">Bienvenido</a>
+                <a href="#bienvenido" class="pure-menu-link" hx-post="/views/bienvenido.html"
+                   hx-trigger="click" hx-target="#main">Bienvenido</a>
             </li>
             <li class="pure-menu-item">
-                <a href="#" class="pure-menu-link">Contacto</a>
+                <a href="#contacto" class="pure-menu-link" hx-post="/views/contacto.html"
+                   hx-trigger="click" hx-target="#main">Contacto</a>
             </li>
             <li class="pure-menu-item">
-                <a href="#" class="pure-menu-link">Experiencia</a>
+                <a href="#experiencia" class="pure-menu-link" hx-post="/views/experiencia.html"
+                   hx-trigger="click" hx-target="#main">Experiencia</a>
             </li>
             <li class="pure-menu-item">
                 <a href="#" class="pure-menu-link">Proyectos</a>
@@ -96,7 +100,7 @@
         </ul>
     </div>
 </nav>
-<main>Main Content</main>
+<main id="main">Main Content</main>
 <footer>
     <h6>
         El diseño de esta página es enteramente mío, lo que muestra mi pobre capacidad estética. Se basa en

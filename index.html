@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/pure-min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Página personal de Pablo Grisafi</title>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <script src="/js/htmx.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <style>
+        .custom-restricted-width {
+            /* To limit the menu width to the content of the menu: */
+            display: inline-block;
+            /* Or set the width explicitly: */
+            /* width: 10em; */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="pure-menu custom-restricted-width">
+        <span class="pure-menu-heading">
+            <img alt="foto chiquita"
+                 class="small-picture img-rounded"
+                 src="img/fotito.jpg"></span>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Bienvenido</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Contacto</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Experiencia</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Proyectos</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Redes Sociales</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Presencia Web</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">El pasado</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<nav class="navbar navbar-default navbar-fixed-top container">
+    <div class="container-fluid ng-scope" ng-controller="TabHeaderController as tabHeaderController">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header ng-scope" ng-controller="DialogController as dialogController">
+            <button class="navbar-toggle collapsed" data-target="#menu-tab" data-toggle="collapse"
+                    id="small-screen-menu"
+                    type="button">
+                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ng-click="dialogController.foto()"> <img alt="foto chiquita"
+                                                                             class="small-picture img-rounded"
+                                                                             src="assets/img/fotito.jpg">
+            </a>
+            <ul class="nav navbar-nav visible-xs-inline-block">
+                <li class="active"><a class="ng-binding">Bienvenido</a></li>
+            </ul>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="menu-tab">
+            <ul class="nav navbar-nav">
+                <li class="ng-isolate-scope active" key="bienvenido"
+                    ng-class="{ active: tabHeaderController.isActive('/bienvenido')}"><a class="ng-binding"
+                                                                                         href="#bienvenido">Bienvenido</a>
+                </li>
+                <li class="ng-isolate-scope" key="contacto"
+                    ng-class="{ active: tabHeaderController.isActive('/contacto')}"><a class="ng-binding"
+                                                                                       href="#contacto">Contacto</a>
+                </li>
+                <li class="ng-isolate-scope" key="experiencia"
+                    ng-class="{ active: tabHeaderController.isActive('/experiencia')}"><a class="ng-binding"
+                                                                                          href="#experiencia">Experiencia</a>
+                </li>
+                <li class="ng-isolate-scope" key="proyectos"
+                    ng-class="{ active: tabHeaderController.isActive('/proyectos')}"><a class="ng-binding"
+                                                                                        href="#proyectos">Proyectos</a>
+                </li>
+                <li class="ng-isolate-scope" key="redes-sociales"
+                    ng-class="{ active: tabHeaderController.isActive('/redes-sociales')}"><a class="ng-binding"
+                                                                                             href="#redes-sociales">Redes
+                    Sociales</a></li>
+                <li class="ng-isolate-scope" key="presencia-web"
+                    ng-class="{ active: tabHeaderController.isActive('/presencia-web')}"><a class="ng-binding"
+                                                                                            href="#presencia-web">Presencia
+                    Web</a></li>
+                <li class="ng-isolate-scope" key="el-pasado"
+                    ng-class="{ active: tabHeaderController.isActive('/el-pasado')}"><a class="ng-binding"
+                                                                                        href="#el-pasado">El
+                    pasado</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>
+<!-- ngView:  -->
+<div class="container ng-scope" id="my-tabs" ng-view="">
+    <div class="tab-pane active ng-scope" id="bienvenido" role="tabpanel">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <h1>
+                    Página personal de Pablo Andrés Grisafi<br> <small>Algo así como una mezcla de un CV y una carta de
+                    presentación para este milenio</small>
+                </h1>
+            </div>
+        </div>
+        <p>
+            Quinto intento de tener un sitio personal...y no lo estoy actualizando como corresponde.<br> El objetivo de
+            este
+            site es...por ahora, exponer un poco de información profesional sobre mí. Esta es la página principal.<br>
+            En
+            este momento está absolutamente en desarrollo. Es más, no debería haberla publicado. Pero bueno, hay que
+            empezar.
+            Éste sitio está gentilmente hosteado por
+            <a class="ng-isolate-scope" href="http://github.com/" ng-transclude="" target="_blank"
+               url="http://github.com/"><span class="ng-scope">github</span></a>
+            .
+        </p>
+        <p>
+            ¡Ingeniero en Sistemas de información!<br> Recibido en diciembre del 2007, UTN-FRBA.<br> Tengo el título en
+            mi
+            poder y todo.<br>
+        </p>
+        <p>Bueno, no hay mucho mas que decir. Pasee un poco por los distintos lugares y verá si tenemos algo en común, o
+            si puedo serle útil.</p>
+    </div>
+</div>
+<div class="container ng-scope" ng-controller="ScrollController as scrollController">
+    <div class="ng-hide" id="back-to-top" ng-show="scrollController.scrollPos &gt; 100">
+        <a ng-click="scrollController.scrollToTop()" title="Volver al principio"> <span
+                class="glyphicon glyphicon-arrow-up"></span> Volver al principio
+        </a>
+    </div>
+</div>
+<footer class="footer ">
+    <div class="container text-muted">
+        <h6>
+            El diseño de esta página es enteramente mío, lo que muestra mi pobre capacidad estética. Se basa en
+            <a class="ng-isolate-scope" href="http://getbootstrap.com/" ng-transclude="" target="_blank"
+               url="http://getbootstrap.com/"><span class="ng-scope">bootstrap</span></a>
+            , como todo lo que nos rodea. Esta página está gentil y gratuitamentemente hosteada por
+            <a class="ng-isolate-scope" href="http://github.com/" ng-transclude="" target="_blank"
+               url="http://github.com/"><span class="ng-scope">github</span></a>
+            . El favicon está tomado de
+            <a class="ng-isolate-scope" href="http://stackoverflow.com" ng-transclude="" target="_blank"
+               url="http://stackoverflow.com"><span class="ng-scope">StackOverflow</span></a>
+            (es la imagen que generaron para mi perfil automáticamente) y convertido de formato gracias a
+            <a class="ng-isolate-scope" href="http://favicon.htmlkit.com/ " ng-transclude="" target="_blank"><span
+                    class="ng-scope">FavIcon from Pics</span></a>
+            <img alt="html 5 icon" src="assets/img/html5icon-tiny.png">
+            <a class="ng-isolate-scope" href="http://validator.w3.org/check?uri=referer " ng-transclude=""
+               target="_blank"><span class="ng-scope">Valid HTML 5</span></a>
+        </h6>
+    </div>
+</footer>
+<div aria-hidden="true" aria-labelledby="modal-title" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <iframe id="iframe-modal" src="#"></iframe>
+            </div>
+            <div class="modal-footer" id="windowstatus"></div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
