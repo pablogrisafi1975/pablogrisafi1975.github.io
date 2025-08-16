@@ -69,7 +69,7 @@
 <nav>
     <div class="pure-menu custom-restricted-width">
         <span class="pure-menu-heading">
-            <img alt="foto chiquita"
+            <img alt="foto chiquita" id ="small-picture"
                  class="small-picture img-rounded"
                  src="img/fotito.jpg"></span>
         <ul class="pure-menu-list">
@@ -115,4 +115,24 @@
     </h6>
 </footer>
 </body>
+<dialog id="pictureDialog">
+    <p>Una foto que me sacó un amigo con talento</p>
+    <img src="img/fotito.jpg" style="width: 270px; height: auto;"><br>
+    <button id="pictureDialogCloseBtn">Cerrar</button>
+</dialog>
+<script>
+    const pictureDialog = document.getElementById('pictureDialog');
+    const openPictureDialog = document.getElementById('small-picture');
+    const pictureDialogCloseBtn = document.getElementById('pictureDialogCloseBtn');
+
+    // Open as modal
+    openPictureDialog.addEventListener('click', () => {
+      pictureDialog.showModal();
+    });
+
+    // Close
+    pictureDialogCloseBtn.addEventListener('click', () => {
+      pictureDialog.close();
+    });
+</script>
 </html>
