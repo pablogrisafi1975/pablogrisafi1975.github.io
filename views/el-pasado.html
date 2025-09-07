@@ -13,7 +13,7 @@
     <p>Y antes de eso, otra muy parecida en Google Pages, pero Google dió de baja ese servicio también... (Google es
         poco confiable en estas cosas)</p>
     <p>
-        Y antes de eso, otra muy pequeña en Netfirms, que se puede ver aún <a href="#el-pasado" onclick="showNetfirmsDialog();">haciendo
+        Y antes de eso, otra muy pequeña en Netfirms, que se puede ver aún <a href="#el-pasado" onclick="showDialog('netfirms-dialog');">haciendo
         click aquí</a>
     </p>
     <p>
@@ -24,7 +24,7 @@
         encontré un backup y lo restauré y ahora pueden disfrutar ese monstruo en todo su esplendor.
     </p>
     <div>
-        <button class="button-error pure-button" onclick="showGeocitiesDialog()">
+        <button class="button-error pure-button" onclick="showDialog('geocities-dialog')">
             Atención: Riesgo de severo daño ocular si hace click.<br/>Prosiga por su cuenta y riesgo
         </button>
     </div>
@@ -39,13 +39,4 @@
         <button onclick="document.getElementById('geocities-dialog').close()">Cerrar</button>
     </dialog>
 </div>
-<script>
-    function showNetfirmsDialog(){
-        const netfirmsDialog = document.getElementById('netfirms-dialog');
-        netfirmsDialog.showModal();
-    }
-    function showGeocitiesDialog(){
-        const geocitiesDialog = document.getElementById('geocities-dialog');
-        geocitiesDialog.showModal();
-    }
-</script>
+

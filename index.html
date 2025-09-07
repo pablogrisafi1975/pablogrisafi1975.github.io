@@ -7,6 +7,7 @@
     <title>Página personal de Pablo Grisafi</title>
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <script src="/js/htmx.min.js"></script>
+    <script src="/js/script.js"></script>
     <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <style>
         body {
@@ -117,7 +118,7 @@
     <div class="pure-menu custom-restricted-width">
         <span class="pure-menu-heading">
             <img alt="foto chiquita" class="small-picture img-rounded"
-                 id="small-picture"
+                 id="small-picture" onclick="showDialog('picture-dialog')"
                  src="img/fotito.jpg"></span>
         <ul class="pure-menu-list">
             <li class="pure-menu-item">
@@ -166,66 +167,13 @@
     </h6>
 </footer>
 </body>
-<dialog id="pictureDialog">
+<dialog id="picture-dialog">
     <h2>¡Linda foto!</h2>
     <p>Una foto que me sacó un amigo con talento</p>
     <img src="img/fotito.jpg" style="width: 270px; height: auto;"><br>
-    <button id="pictureDialogCloseBtn">Cerrar</button>
+    <button onclick="document.getElementById('picture-dialog').close()">Cerrar</button>
 </dialog>
 <script>
-    const pictureDialog = document.getElementById('pictureDialog');
-    const openPictureDialog = document.getElementById('small-picture');
-    const pictureDialogCloseBtn = document.getElementById('pictureDialogCloseBtn');
-
-    // Open as modal
-    openPictureDialog.addEventListener('click', () => {
-      pictureDialog.showModal();
-    });
-
-    // Close
-    pictureDialogCloseBtn.addEventListener('click', () => {
-      pictureDialog.close();
-    });
-
-    window.addEventListener('load', () => {
-        if(window.location.hash == ''){
-            window.location.hash = 'bienvenido';
-        }
-        console.log('page loaded, pointing to ' +  window.location.hash);
-        const validMenuLinks = Array.from(document.querySelectorAll('a.pure-menu-link'));
-        const validLinks = validMenuLinks.map(l => '#' + l.href.split('#')[1]);
-        if(!validLinks.includes(window.location.hash)){
-            window.location.hash = 'bienvenido';
-            console.log('fixed, pointing to ' +  window.location.hash);
-        }
-        //click in the pointed menu item
-        validMenuLinks.filter(l => l.href.endsWith(window.location.hash))[0].click()
-
-        window.addEventListener("hashchange",(e) => {
-            //console.log("The hash has changed! from " + e.oldURL + " to " + e.newURL);
-            setTimeout(function() {
-                 //console.log('check if page is right after 0.5 secs');
-                 const expectedDiv = window.location.hash.substr(1);
-                 if(document.getElementById(expectedDiv) == null){
-                    //console.log('is not right!');
-                     //click in the pointed menu item
-                    const theLinkArray = validMenuLinks.filter(l => l.href.endsWith(window.location.hash));
-                    if(theLinkArray.length == 1){
-                        theLinkArray[0].click()
-                    }else{
-                        validMenuLinks.filter(l => l.href.endsWith('bienvenido'))[0].click()
-                    }
-                 }
-            }, 500);
-
-          },
-          false,
-        );
-
-
-    })
-
-
-
+    window.addEventListener('load', navigation )
 </script>
 </html>
