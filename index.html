@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/pure-min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/pure-min.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Página personal de Pablo Grisafi</title>
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <script src="/js/htmx.min.js"></script>
@@ -75,6 +75,36 @@
             max-width: 27%;
             min-width: 27%;
         }
+        <style>
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65);
+            /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(202, 60, 60);
+            /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(223, 117, 20);
+            /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(66, 184, 221);
+            /* this is a light blue */
+        }
+    </style>
     </style>
 </head>
 <body>
@@ -87,34 +117,35 @@
 <nav>
     <div class="pure-menu custom-restricted-width">
         <span class="pure-menu-heading">
-            <img alt="foto chiquita" id ="small-picture"
-                 class="small-picture img-rounded"
+            <img alt="foto chiquita" class="small-picture img-rounded"
+                 id="small-picture"
                  src="img/fotito.jpg"></span>
         <ul class="pure-menu-list">
             <li class="pure-menu-item">
-                <a href="#bienvenido" class="pure-menu-link" hx-post="/views/bienvenido.html"
-                   hx-trigger="click" hx-target="#main">Bienvenido</a>
+                <a class="pure-menu-link" href="#bienvenido" hx-post="/views/bienvenido.html"
+                   hx-target="#main" hx-trigger="click">Bienvenido</a>
             </li>
             <li class="pure-menu-item">
-                <a href="#contacto" class="pure-menu-link" hx-post="/views/contacto.html"
-                   hx-trigger="click" hx-target="#main">Contacto</a>
+                <a class="pure-menu-link" href="#contacto" hx-post="/views/contacto.html"
+                   hx-target="#main" hx-trigger="click">Contacto</a>
             </li>
             <li class="pure-menu-item">
-                <a href="#experiencia" class="pure-menu-link" hx-post="/views/experiencia.html"
-                   hx-trigger="click" hx-target="#main">Experiencia</a>
+                <a class="pure-menu-link" href="#experiencia" hx-post="/views/experiencia.html"
+                   hx-target="#main" hx-trigger="click">Experiencia</a>
             </li>
             <!--li class="pure-menu-item">
                 <a href="#" class="pure-menu-link">Proyectos</a>
             </li-->
             <li class="pure-menu-item">
-                <a href="#redes-sociales" class="pure-menu-link"  hx-post="/views/redes-sociales.html"
-                   hx-trigger="click" hx-target="#main">Redes Sociales</a>
+                <a class="pure-menu-link" href="#redes-sociales" hx-post="/views/redes-sociales.html"
+                   hx-target="#main" hx-trigger="click">Redes Sociales</a>
             </li>
             <!--li class="pure-menu-item">
                 <a href="#" class="pure-menu-link">Presencia Web</a>
             </li-->
             <li class="pure-menu-item">
-                <a href="#" class="pure-menu-link">El pasado</a>
+                <a class="pure-menu-link" href="#el-pasado" hx-post="/views/el-pasado.html"
+                   hx-target="#main" hx-trigger="click">El pasado</a>
             </li>
         </ul>
     </div>
