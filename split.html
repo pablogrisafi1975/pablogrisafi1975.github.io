@@ -57,6 +57,24 @@
           align-items: center;
           padding: 1rem;
         }
+        #social div {
+
+        }
+        #social img { /* no matter how nested */
+           width: 5rem;
+           height: auto; /* keeps aspect ratio */
+           float: left;
+           margin-right: 0.5rem;
+        }
+        #social span {
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            margin: 0.5rem;
+            max-width: 27%;
+            min-width: 27%;
+        }
     </style>
 </head>
 <body>
@@ -89,7 +107,8 @@
                 <a href="#" class="pure-menu-link">Proyectos</a>
             </li>
             <li class="pure-menu-item">
-                <a href="#" class="pure-menu-link">Redes Sociales</a>
+                <a href="#redes-sociales" class="pure-menu-link"  hx-post="/views/redes-sociales.html"
+                   hx-trigger="click" hx-target="#main">Redes Sociales</a>
             </li>
             <li class="pure-menu-item">
                 <a href="#" class="pure-menu-link">Presencia Web</a>
